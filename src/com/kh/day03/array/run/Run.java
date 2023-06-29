@@ -14,6 +14,7 @@ public class Run {
 		// Random
 		Exercise_Array1 exArr = new Exercise_Array1();
 //		exArr.exercise1();
+		
 //		exArr.exercise2();
 //		exArr.arryCopyExercise();
 		exArr.lottoExercise();
