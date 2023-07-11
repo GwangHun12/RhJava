@@ -15,6 +15,7 @@ public class Run {
 		int choice = 0;
 		Music music = null;
 		String title = "";
+		int index = 0;
 		do {
 			choice = view.musicMenu();
 			switch(choice) {
@@ -43,7 +44,7 @@ public class Run {
 				break;
 			case 5: 
 				title = view.inputMusicName("삭제"); 
-					int index = mController.searchOneByTitle(title);
+					index = mController.searchOneByTitle(title);
 					if(index == -1) {
 						view.displayError("존재하지 않습니다.");
 						break;
@@ -51,14 +52,45 @@ public class Run {
 					mController.removeMusic(index);
 					view.displaySuccess("곡 삭제 성공!");
 					break;
-			case 6: break;
-			case 7: break;
-			case 8: break;
-			case 9: break;
-			case 10: break;
-			case 0: System.out.println("프로그램을 종료합니다."); break;
+			case 6: 
+				// 수정할 곡 입력 받기
+				title = view.inputMusicName("수정");
+				// 존재여부 확인
+				index = mController.searchOneByTitle(title);
+				if(index == -1) {
+					view.displayError("존재하지 않습니다.");
+					break;
+				}
+				// 이후 수정하기
+				// 수정할 정보 입력 받기
+				music = view.modifyMusicInfo();
+				// 수정하기
+				mController.updateMusic(index, music);
+				break;
+			case 7: 
+				view.printMessage("============= 곡명 오름차순 정렬 ==============");
+				mController.bubbleSortByTitleASC();
+				view.displaySuccess("정렬 성공! 3번을 눌러 출력해주세요!");
+				break;
+			case 8: 
+				view.printMessage("============= 곡명 내림차순 정렬 ==============");
+				mController.bubbleSortByTitleDESC();
+				view.displaySuccess("정렬 성공! 3번을 눌러 출력해주세요!");
+				break;
+			case 9: 
+				view.printMessage("============= 곡명 오름차순 정렬 ==============");
+				mController.bubbleSortBySingerASC();
+				view.displaySuccess("정렬 성공! 3번을 눌러 출력해주세요!");
+				break;
+			case 10: 
+				view.printMessage("============= 곡명 내림차순 정렬 ==============");
+				mController.bubbleSortBySingerDESC();
+				view.displaySuccess("정렬 성공! 3번을 눌러 출력해주세요!");
+				break;
+			case 0: view.printMessage("프로그램을 종료합니다."); 
+			break;
 			default : 
-				System.out.println("잘못 입력하셨습니다.");
+				view.printMessage("잘못 입력하셨습니다.");
 				break;
 			}
 		} while(choice != 0);

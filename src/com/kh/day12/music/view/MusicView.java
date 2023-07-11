@@ -41,6 +41,9 @@ public class MusicView {
 	public void displayError(String msg) {
 		System.out.println("[서비스 실패] "+msg);
 	}
+	public void printMessage(String message) {
+		System.out.println(message);
+	}
 	
 //	public void displaySuccess1() {
 //		System.out.println("[서비스 성공] 첫번째 위치에 추가 성공!");
@@ -76,5 +79,16 @@ public class MusicView {
 		System.out.print("삭제할 곡 입력: ");
 		String title = sc.nextLine();
 		return title;
+	}
+
+	public Music modifyMusicInfo() {
+		Scanner sc = new Scanner(System.in);
+		System.out.print("곡명 : ");
+		String title = sc.nextLine();
+		System.out.print("가수명 : ");
+		String singer = sc.nextLine();
+		Music music = new Music(title, singer);
+		return music;
+		
 	}
 }
