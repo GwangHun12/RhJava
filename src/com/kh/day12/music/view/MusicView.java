@@ -73,13 +73,13 @@ public class MusicView {
 		return title;
 	}
 
-	public String removeMusicName() {
-		// TODO Auto-generated method stub
-		Scanner sc = new Scanner(System.in);
-		System.out.print("삭제할 곡 입력: ");
-		String title = sc.nextLine();
-		return title;
-	}
+//	public String removeMusicName() {
+//		// TODO Auto-generated method stub
+//		Scanner sc = new Scanner(System.in);
+//		System.out.print("삭제할 곡 입력: ");
+//		String title = sc.nextLine();
+//		return title;
+//	}
 
 	public Music modifyMusicInfo() {
 		Scanner sc = new Scanner(System.in);
