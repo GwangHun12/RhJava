@@ -12,6 +12,7 @@ public class Run {
 		MotelView view = new MotelView();
 		MotelController mController = new MotelController();
 		Scanner sc = new Scanner(System.in);
+		
 		int choice = 0;
 		Motel motel = null;
 		int number = 0;
@@ -27,15 +28,23 @@ public class Run {
 				break;
 			case 2:
 				number = view.outputMotelNum();
-				List<Motel> searchList
-				= mController.searchMotelsByNum(number);
-				view.showAllMotelList(searchList);
-					index = mController.searchMotelsByNumber(number);
+//				List<Motel> searchList
+//				= mController.searchMotelsByNum(number);
+//				view.showAllMotelList(searchList);
+				index = mController.searchMotelsByNumber(number);
 					if(index == -1) {
 						view.displayError("이미 비어있는 방입니다.");
 						break;
 					}
 					mController.removeMotel(index);
+					view.displaySuccescc(number + "번방에서 퇴실하셨습니다.");
+					break;
+					
+			case 3:
+				List<Motel> allList = mController.printMotelList();
+				view.showAllMotelList(allList);
+				view.displaySuccescc(null);
+				break;
 			}
 			
 		} 

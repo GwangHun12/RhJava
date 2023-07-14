@@ -25,7 +25,7 @@ public class MotelController {
 				findList.add(mOne);
 			}
 		}
-		return null;
+		return mList;
 	}
 
 	public int searchMotelsByNumber(int number) {
@@ -36,11 +36,16 @@ public class MotelController {
 				return i;
 			}
 		}
-		return 0;
+		return -1;
 	}
 
 	public void removeMotel(int i) {
 		mList.remove(i);
+	}
+
+	public List<Motel> printMotelList() {
+		// TODO Auto-generated method stub
+		return mList;
 	}
 
 }
